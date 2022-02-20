@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "jsx": "react",
+    "lib": ["es2015", "es2015.promise", "es2016.array.include", "dom"],
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "_/*`": ["./src/*"],
+      "_atoms/*": [
+        "./src/components/atoms/*/index",
+        "./src/components/atoms/*",
+        "./src/components/atoms/index"
+      ],
+      "_images/*": [
+        "./src/assets/images/*/index",
+        "./src/assets/images/*",
+        "./src/assets/images/index"
+      ],
+      "_icons/*": [
+        "./src/assets/icons/*/index",
+        "./src/assets/icons/*",
+        "./src/assets/icons/index"
+      ],
+      "_screens/*": [
+        "./src/screens/*/index",
+        "./src/screens/*",
+        "./src/screens/index"
+      ],
+      "_constants/*": ["./src/constants/*/index", "./src/constants/*"],
+      "_contexts/*": [
+        "./src/contexts/index",
+        "./src/contexts/*/index",
+        "./src/contexts/*"
+      ]
+    },
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "target": "esnext",
+    "types": ["jest", "node"]
+  },
+  "include": ["next-env.d.ts", "./src/**/*", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js"],
+  "typeRoots": ["./src/types"]
+}
