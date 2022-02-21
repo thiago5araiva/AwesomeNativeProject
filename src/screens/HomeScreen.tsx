@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import { Input, Button } from '_atoms/';
 import { UserContext } from '_contexts/';
+import { useTheme } from '@react-navigation/native';
 import analytics from '@react-native-firebase/analytics';
 
 const HomeScreen = ({ navigation }) => {
   const { setState, state } = useContext(UserContext);
+  const { colors } = useTheme();
 
   const handleInput = (value: string) => {
     setState({
@@ -46,7 +48,7 @@ const HomeScreen = ({ navigation }) => {
         /> */}
       </View>
       <TouchableWithoutFeedback>
-        <Text>onBlur</Text>
+        <Text style={{ color: colors.text }}>onBlur</Text>
       </TouchableWithoutFeedback>
     </SafeAreaView>
   );
