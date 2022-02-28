@@ -1,7 +1,7 @@
-type IconType = {
+type IconPropTypes = {
   fill?: string;
   width?: string;
   height?: string;
 };
 
-export default IconType;
+export default IconPropTypes;

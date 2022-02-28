@@ -1,10 +1,18 @@
 import { View, StyleSheet } from 'react-native';
 import React from 'react';
 
-export type RowPropTypes = { children: React.ReactElement[] };
+export type RowPropTypes = {
+  children: React.ReactElement[] | React.ReactElement;
+  align: string;
+};
 
-const RowComponent = ({ children }: RowPropTypes): JSX.Element => {
-  return <View style={styles.container}>{children}</View>;
+const RowComponent = ({ children, align }: RowPropTypes): JSX.Element => {
+  const bindStyles = {
+    ...styles['container'],
+    justifyContent: align ? align : 'flex-start',
+  };
+  console.log(bindStyles);
+  return <View style={[styles.container, bindStyles]}>{children}</View>;
 };
 
 const styles = StyleSheet.create({

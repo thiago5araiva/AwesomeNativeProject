@@ -12,7 +12,7 @@ import {
   PanResponder,
 } from 'react-native';
 import { Button } from '.';
-import BottomsheetImage from '_assets/images/bottomsheetImage.svg';
+import BottomsheetImage from '_images/bottomsheetImage.svg';
 
 export interface BottomSheetInterface {
   close(): void;

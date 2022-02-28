@@ -1,3 +1,10 @@
+import {
+  DefaultTheme,
+  NavigationContainerProps,
+  Theme,
+} from '@react-navigation/native';
+console.log('🚀 DefaultTheme', DefaultTheme);
+
 /**
  * @COLORS
  * dark (boolean): Whether this is a dark theme or a light theme
@@ -9,42 +16,48 @@
  * notification (string): The color of Tab Navigator badge.
  */
 
-const LIGHT_COLORS = {
-  primary: 'rgba(219, 48, 34, 1)',
-  background: 'rgba(249, 249, 249, 1)',
-  card: 'rgb(255, 255, 255)',
-  text: 'rgb(28, 28, 30)',
-  border: 'rgb(199, 199, 204)',
-  notification: 'rgb(255, 69, 58)',
-  //
-  black: 'rgba(34, 34, 34, 1)',
-  grey: 'rgba(155, 155, 155, 1)',
-  error: 'rgba(240, 31, 14, 1)',
-  success: 'rgba(42, 169, 82, 1)',
-  white: 'rgba(255, 255, 255, 1)',
-};
+type CustomTheme = {
+  colors: {
+    black: 'rgba(34, 34, 34, 1)';
+    grey: 'rgba(155, 155, 155, 1)';
+    error: 'rgba(240, 31, 14, 1)';
+    success: 'rgba(42, 169, 82, 1)';
+    white: 'rgba(255, 255, 255, 1)';
+  };
+} & Theme;
 
-const DARK_COLORS = {
-  primary: 'rgba(219, 48, 34, 1)',
-  background: 'rgba(249, 249, 249, 1)',
-  card: 'rgb(255, 255, 255)',
-  text: 'rgb(28, 28, 30)',
-  border: 'rgb(199, 199, 204)',
-  notification: 'rgb(255, 69, 58)',
-  //
-  black: 'rgba(34, 34, 34, 1)',
-  grey: 'rgba(155, 155, 155, 1)',
-  error: 'rgba(240, 31, 14, 1)',
-  success: 'rgba(42, 169, 82, 1)',
-  white: 'rgba(255, 255, 255, 1)',
-};
-
-export const LightTheme = {
-  dark: false,
-  colors: LIGHT_COLORS,
+export const LightTheme: CustomTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgba(219, 48, 34, 1)',
+    background: 'rgba(249, 249, 249, 1)',
+    card: 'rgb(255, 255, 255)',
+    text: 'rgb(28, 28, 30)',
+    border: 'rgb(199, 199, 204)',
+    notification: 'rgb(255, 69, 58)',
+    black: 'rgba(34, 34, 34, 1)',
+    grey: 'rgba(155, 155, 155, 1)',
+    error: 'rgba(240, 31, 14, 1)',
+    success: 'rgba(42, 169, 82, 1)',
+    white: 'rgba(255, 255, 255, 1)',
+  },
 };
 
 export const DarkTheme = {
-  dark: true,
-  colors: DARK_COLORS,
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgba(219, 48, 34, 1)',
+    background: 'rgba(249, 249, 249, 1)',
+    card: 'rgb(255, 255, 255)',
+    text: 'rgb(28, 28, 30)',
+    border: 'rgb(199, 199, 204)',
+    notification: 'rgb(255, 69, 58)',
+    black: 'rgba(34, 34, 34, 1)',
+    grey: 'rgba(155, 155, 155, 1)',
+    error: 'rgba(240, 31, 14, 1)',
+    success: 'rgba(42, 169, 82, 1)',
+    white: 'rgba(255, 255, 255, 1)',
+  },
 };

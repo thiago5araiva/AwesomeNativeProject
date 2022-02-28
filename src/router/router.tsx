@@ -4,7 +4,6 @@ import { useColorScheme, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   createNativeStackNavigator,
-  NativeStackHeaderProps,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import { DarkTheme, LightTheme } from '../theme';
@@ -21,6 +20,7 @@ const Stack = createNativeStackNavigator();
 
 const router = () => {
   const scheme = useColorScheme();
+  console.log(scheme);
   const signOptions: NativeStackNavigationOptions = {
     header: props => <CustomHeader {...props} />,
   };
