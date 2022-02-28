@@ -1,27 +1,41 @@
 import React, { createContext, useState } from 'react';
 
-type UserType = { name: string; lastName: string; email: string };
+type UserType = {
+  displayName: null;
+  email: string;
+  emailVerified: boolean;
+  isAnonymous: boolean;
+  metadata: { creationTime: number; lastSignInTime: number };
+  phoneNumber: null;
+  photoURL: null;
+  uid: string;
+};
 
 type PropsUserContext = {
-  state: UserType;
-  setState: React.Dispatch<React.SetStateAction<UserType>>;
+  user: UserType;
+  setUser: React.Dispatch<React.SetStateAction<UserType>>;
 };
 
 const DEFAULT_VALUE = {
-  state: {
-    name: 'Thiago',
-    lastName: 'Saraiva',
-    email: 'thiago.saraiva@me.com',
+  user: {
+    displayName: null,
+    email: '',
+    emailVerified: false,
+    isAnonymous: false,
+    metadata: { creationTime: 0, lastSignInTime: 0 },
+    phoneNumber: null,
+    photoURL: null,
+    uid: 'string',
   },
-  setState: () => {},
+  setUser: () => {},
 };
 
 const UserContext = createContext<PropsUserContext>(DEFAULT_VALUE);
 
 const UserContextProvider = ({ children }): JSX.Element => {
-  const [state, setState] = useState(DEFAULT_VALUE.state);
+  const [user, setUser] = useState(DEFAULT_VALUE.user);
   return (
-    <UserContext.Provider value={{ state, setState }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );

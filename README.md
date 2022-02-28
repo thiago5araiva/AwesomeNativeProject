@@ -1,4 +1,3 @@
-###security libs
 **CryptoJS**
 JavaScript library of crypto standards. To use on sensitive information on App.
 

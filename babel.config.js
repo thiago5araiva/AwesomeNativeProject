@@ -11,6 +11,7 @@ module.exports = {
           root: ['./src'],
           _: './src',
           _atoms: './src/components/atoms',
+          _molecules: './src/components/molecules',
           _images: './src/assets/images',
           _icons: './src/assets/icons',
           _constants: './src/constants',

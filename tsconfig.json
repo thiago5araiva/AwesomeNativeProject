@@ -19,6 +19,11 @@
         "./src/components/atoms/*",
         "./src/components/atoms/index"
       ],
+      "_molecules/*": [
+        "./src/components/molecules/*/index",
+        "./src/components/molecules/*",
+        "./src/components/molecules/index"
+      ],
       "_images/*": [
         "./src/assets/images/*/index",
         "./src/assets/images/*",

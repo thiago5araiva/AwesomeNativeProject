@@ -24,16 +24,20 @@ const DocumentPickerScreen = () => {
   const handleError = (err: unknown) => {
     if (DocumentPicker.isCancel(err)) {
       console.warn('cancelled');
-      // User cancelled the picker, exit any dialogs or menus and move on
     } else if (isInProgress(err)) {
-      // console.warn(
-      //   'multiple pickers were opened, only the last will be considered',
-      // );
+      console.warn('multiple pickers were opened');
     } else {
       throw err;
     }
   };
-
+  const handleDirectoryPicker = async () => {
+    try {
+      const pickerResult = await DocumentPicker.pickDirectory();
+      setResult(pickerResult);
+    } catch (e) {
+      handleError(e);
+    }
+  };
   const handlePicker = async () => {
     try {
       const pickerResult = await DocumentPicker.pickSingle({
@@ -88,12 +92,7 @@ const DocumentPickerScreen = () => {
             .catch(handleError);
         }}
       />
-      <Button
-        title="open directory picker"
-        onPress={() => {
-          DocumentPicker.pickDirectory().then(setResult).catch(handleError);
-        }}
-      /> */}
+ */}
 
       <Text selectable>Result: {JSON.stringify(result, null, 2)}</Text>
     </View>

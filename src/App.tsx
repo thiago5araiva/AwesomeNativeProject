@@ -1,3 +1,5 @@
+// TODO: Create a error handler
+
 import React from 'react';
 import { BackHandler } from 'react-native';
 import JailMonkey from 'jail-monkey';
