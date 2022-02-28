@@ -1,11 +1,15 @@
 import React from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
-import { ContainerTypes } from './types';
+
+export type ContainerPropTypes = {
+  children: React.ReactElement | any;
+  customStyle?: object;
+};
 
 const ContainerComponent = ({
   children,
   customStyle,
-}: ContainerTypes): JSX.Element => {
+}: ContainerPropTypes): JSX.Element => {
   return <View style={[styles.container, customStyle]}>{children}</View>;
 };
 

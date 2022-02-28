@@ -1,10 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TextInput, StyleSheet, View, Animated } from 'react-native';
-import Text from '_atoms/Text/';
+import Text from '_atoms/Text';
 import { Error, Check } from '_icons/';
 import COLORS from '_constants/Colors';
 
-import { InputStateTypes, InputTypes } from './types';
+export type InputPropTypes = {
+  type:
+    | 'default'
+    | 'number-pad'
+    | 'decimal-pad'
+    | 'numeric'
+    | 'email-address'
+    | 'phone-pad';
+  inputAutoFocus?: boolean | false;
+  inputChange: React.Dispatch<string>;
+  inputDefaultValue: string;
+  inputPlaceholder: string;
+  customStyle?: object;
+  success?: boolean;
+  error?: boolean;
+};
+
+export type InputStateTypes = {
+  label: boolean;
+  placeholder: string;
+};
+
 const InputComponent = ({
   type,
   inputAutoFocus,
@@ -14,7 +35,7 @@ const InputComponent = ({
   customStyle,
   success,
   error,
-}: InputTypes): JSX.Element => {
+}: InputPropTypes): JSX.Element => {
   const [placeholderValues, setPlaceholderValues] = useState<InputStateTypes>({
     label: false,
     placeholder: inputPlaceholder,

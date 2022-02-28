@@ -11,10 +11,18 @@ import {
   Animated,
   PanResponder,
 } from 'react-native';
-import { Button } from '..';
-import BottomsheetImage from '../../../assets/images/bottomsheetImage.svg';
+import { Button } from '.';
+import BottomsheetImage from '_assets/images/bottomsheetImage.svg';
 
-import { BottomSheetTypes, BottomSheetInterface } from './types';
+export interface BottomSheetInterface {
+  close(): void;
+  open(): void;
+}
+export type BottomSheetTypes = {
+  children?: React.ReactElement;
+  active?: false;
+  onPress?: void;
+};
 
 const BottomSheetComponent: RefForwardingComponent<
   BottomSheetInterface,

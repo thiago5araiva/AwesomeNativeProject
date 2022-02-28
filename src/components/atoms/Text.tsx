@@ -1,13 +1,30 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
-
-import { TextTypes, TypesText } from './types';
 import COLORS from '_constants/Colors';
+
+export type TextPropTypes = {
+  children: React.ReactElement | string;
+  type:
+    | 'heading'
+    | 'headline'
+    | 'title'
+    | 'subtitle'
+    | 'text'
+    | 'descriptive'
+    | 'description'
+    | 'helper';
+  customStyle?: object;
+};
+
+export type TypesText = {
+  [key: string]: object;
+};
+
 const TextComponent = ({
   children,
   type,
   customStyle,
-}: TextTypes): JSX.Element => {
+}: TextPropTypes): JSX.Element => {
   const typeOfText = (types: string): object => {
     const textTypes: TypesText = {
       heading: styles.heading,

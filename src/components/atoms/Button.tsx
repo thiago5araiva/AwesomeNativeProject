@@ -1,13 +1,18 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-import { ButtonTypes } from './types';
+export type ButtonPropTypes = {
+  onPress: () => void;
+  children?: React.ReactChildren;
+  title: string;
+  icon?: React.ReactElement;
+};
 
 const ButtonComponent = ({
   onPress,
   children,
   title,
-}: ButtonTypes): JSX.Element => {
+}: ButtonPropTypes): JSX.Element => {
   return (
     <TouchableOpacity style={styles.container} onPress={() => onPress()}>
       <Text style={styles.text}>{title}</Text>

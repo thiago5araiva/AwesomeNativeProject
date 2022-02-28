@@ -4,20 +4,18 @@ import { useTheme } from '@react-navigation/native';
 import Container from '_atoms/Container';
 import Text from '_atoms/Text';
 import { getHeaderTitle } from '@react-navigation/elements';
+import { Row } from '_atoms/';
+import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 
 const screen = Dimensions.get('window');
 
-const CustomHeaderComponent = ({ navigation, route, options, back }) => {
+const CustomHeaderComponent = ({
+  navigation,
+  route,
+  options,
+  back,
+}: NativeStackHeaderProps) => {
   const title = getHeaderTitle(options, route.name);
-
-  /**-- navigation config --**/
-  // const { options } = scene.descriptor;
-  // const title =
-  //   options.headerTitle !== undefined
-  //     ? options.headerTitle
-  //     : options.title !== undefined
-  //     ? options.title
-  //     : scene.route.name;
 
   const { colors } = useTheme();
 
@@ -31,8 +29,10 @@ const CustomHeaderComponent = ({ navigation, route, options, back }) => {
   return (
     <SafeAreaView style={bindStyles}>
       <Container>
-        <Text type="heading">{title}</Text>
-        <Text type="heading">{title}</Text>
+        <Row>
+          <Text type="heading">{title}</Text>
+          <Text type="heading">{title}</Text>
+        </Row>
       </Container>
     </SafeAreaView>
   );
