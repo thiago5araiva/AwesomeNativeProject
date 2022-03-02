@@ -44,6 +44,11 @@
         "./src/contexts/index",
         "./src/contexts/*/index",
         "./src/contexts/*"
+      ],
+      "_themes/*": [
+        "./src/themes/index",
+        "./src/themes/*/index",
+        "./src/themes/*"
       ]
     },
     "noEmit": true,

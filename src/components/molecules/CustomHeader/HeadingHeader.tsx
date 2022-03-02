@@ -1,54 +1,46 @@
+import React from 'react';
 import {
   Dimensions,
-  StyleSheet,
   SafeAreaView,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
-import React from 'react';
-import { useTheme } from '@react-navigation/native';
+import { getHeaderTitle } from '@react-navigation/elements';
+import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+
 import Container from '_atoms/Container';
 import Text from '_atoms/Text';
-import { getHeaderTitle } from '@react-navigation/elements';
-import { Row } from '_atoms/';
-import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 import { ChevronRight } from '_icons/';
+import { DEFAULT_THEME } from '_themes/';
 const CustomHeaderComponent = ({
   navigation,
   route,
   options,
-  back,
 }: NativeStackHeaderProps) => {
   const title = getHeaderTitle(options, route.name);
-  const { colors } = useTheme();
-
-  const bindStyles = {
-    ...styles['container'],
-    backgroundColor: colors?.background,
-  };
 
   return (
-    <SafeAreaView style={bindStyles}>
-      <Container customStyle={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+    <SafeAreaView style={styles.container}>
+      <Container>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.goBack()}>
           <ChevronRight />
         </TouchableOpacity>
-        <Text customStyle={styles.title} type="heading">
-          {title}
-        </Text>
+        <Text type="heading">{title}</Text>
       </Container>
     </SafeAreaView>
   );
 };
 
+const { colors } = DEFAULT_THEME;
 const screen = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     height: screen.height * 0.2,
+    backgroundColor: colors.background,
   },
-  header: {
-    marginTop: 16,
-  },
-  title: { marginTop: 34 },
+  button: { marginBottom: 16 },
 });
 
 export default CustomHeaderComponent;

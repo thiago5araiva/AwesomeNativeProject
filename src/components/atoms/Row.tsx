@@ -3,7 +3,7 @@ import React from 'react';
 
 export type RowPropTypes = {
   children: React.ReactElement[] | React.ReactElement;
-  align: string;
+  align?: string;
 };
 
 const RowComponent = ({ children, align }: RowPropTypes): JSX.Element => {
@@ -11,7 +11,6 @@ const RowComponent = ({ children, align }: RowPropTypes): JSX.Element => {
     ...styles['container'],
     justifyContent: align ? align : 'flex-start',
   };
-  console.log(bindStyles);
   return <View style={[styles.container, bindStyles]}>{children}</View>;
 };
 

@@ -17,6 +17,7 @@ module.exports = {
           _constants: './src/constants',
           _screens: './src/screens',
           _contexts: './src/contexts',
+          _themes: './src/themes',
         },
       },
     ],
