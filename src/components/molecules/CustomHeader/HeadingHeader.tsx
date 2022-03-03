@@ -8,8 +8,7 @@ import {
 import { getHeaderTitle } from '@react-navigation/elements';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 
-import Container from '_atoms/Container';
-import Text from '_atoms/Text';
+import { Container, Text } from '_atoms/';
 import { ChevronRight } from '_icons/';
 import { DEFAULT_THEME } from '_themes/';
 const CustomHeaderComponent = ({
@@ -18,7 +17,6 @@ const CustomHeaderComponent = ({
   options,
 }: NativeStackHeaderProps) => {
   const title = getHeaderTitle(options, route.name);
-
   return (
     <SafeAreaView style={styles.container}>
       <Container>

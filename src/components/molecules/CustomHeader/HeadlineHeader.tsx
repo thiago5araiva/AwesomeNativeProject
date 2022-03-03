@@ -8,9 +8,7 @@ import {
 import { getHeaderTitle } from '@react-navigation/elements';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 
-import Container from '_atoms/Container';
-import Row from '_atoms/Row';
-import Text from '_atoms/Text';
+import { Container, Row, Text } from '_atoms/';
 import { ChevronRight } from '_icons/';
 import { DEFAULT_THEME } from '_themes/';
 

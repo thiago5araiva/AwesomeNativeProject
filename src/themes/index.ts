@@ -21,6 +21,39 @@ export type CustomTheme = {
   };
 } & Theme;
 
+export type DefaultThemeType = {
+  colors: {
+    primary: string;
+    background: string;
+    card: 'rgb(255, 255, 255)';
+    text: 'rgb(28, 28, 30)';
+    border: 'rgb(199, 199, 204)';
+    notification: 'rgb(255, 69, 58)';
+    black: string;
+    grey: string;
+    error: string;
+    success: string;
+    white: string;
+  };
+  spacing: {
+    sm: {
+      primary: number;
+      secondary: number;
+      tertiary: number;
+    };
+    md: {
+      primary: number;
+      secondary: number;
+      tertiary: number;
+    };
+    lg: {
+      primary: number;
+      secondary: number;
+      tertiary: number;
+    };
+  };
+};
+
 export const LightTheme: CustomTheme = {
   ...DefaultTheme,
   colors: {
@@ -70,5 +103,22 @@ export const DEFAULT_THEME = {
     error: 'rgba(240, 31, 14, 1)',
     success: 'rgba(42, 169, 82, 1)',
     white: 'rgba(255, 255, 255, 1)',
+  },
+  spacing: {
+    sm: {
+      primary: 3,
+      secondary: 6,
+      tertiary: 9,
+    },
+    md: {
+      primary: 15,
+      secondary: 24,
+      tertiary: 39,
+    },
+    lg: {
+      primary: 55,
+      secondary: 94,
+      tertiary: 149,
+    },
   },
 };

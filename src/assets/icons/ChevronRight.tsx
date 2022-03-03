@@ -1,11 +1,9 @@
 import React from 'react';
-import { useTheme } from '@react-navigation/native';
 import Svg, { Path } from 'react-native-svg';
 import IconType from './types';
-
+import { DEFAULT_THEME } from '_themes/';
 const ChevronRightIcon = ({ fill, width, height }: IconType) => {
-  const { colors } = useTheme();
-  const colorValue = fill ? fill : colors['black'];
+  const colorValue = fill ? fill : DEFAULT_THEME.colors.black;
   const widthValue = width ? width : '24';
   const heightValue = height ? height : '24';
   return (

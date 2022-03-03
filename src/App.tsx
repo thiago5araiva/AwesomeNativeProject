@@ -3,7 +3,7 @@
 import React from 'react';
 import { BackHandler } from 'react-native';
 import JailMonkey from 'jail-monkey';
-import Routes from './router/router';
+import Routes from './router';
 import * as Sentry from '@sentry/react-native';
 Sentry.init({
   dsn: 'https://1e8c2efc8e05432992e60402fa209b20@o1133918.ingest.sentry.io/6180827',

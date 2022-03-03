@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TextInput, StyleSheet, View, Animated } from 'react-native';
-import Text from '_atoms/Text';
+import { Text } from '_atoms/';
 import { Error, Check } from '_icons/';
 import COLORS from '_constants/Colors';
 

@@ -8,7 +8,9 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "clean": "sudo rm -fr ./node_modules && rm -rf ./yarn.lock && yarn"
+    "clean": "watchman watch-del-all && killall -9 node && rm -rf yarn.lock package-lock.json node_modules ios/Pods ios/Podfile.lock android/app/build && npm install && cd ios && pod update && cd .. && npm start -- --reset-cache",
+    "open-ios": "open -a Simulator.app",
+    "open-android": "emulator -avd Pixel5"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.16.1",

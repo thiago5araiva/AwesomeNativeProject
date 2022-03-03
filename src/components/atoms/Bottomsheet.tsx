@@ -12,7 +12,6 @@ import {
   PanResponder,
 } from 'react-native';
 import { Button } from '.';
-import BottomsheetImage from '_images/bottomsheetImage.svg';
 
 export interface BottomSheetInterface {
   close(): void;
@@ -108,7 +107,6 @@ const BottomSheetComponent: RefForwardingComponent<
           },
         ]}
         onLayout={event => setContentHeight(event.nativeEvent.layout.height)}>
-        <BottomsheetImage style={styles.image} fill={`blue`} />
         <Text style={styles.title}>Biometria necessária</Text>
         <Text style={styles.subtitle}>
           Para seguir com a atualização é necessária a sua biometria, procure os
