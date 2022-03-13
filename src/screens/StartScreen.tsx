@@ -16,7 +16,11 @@ const StartScreen = (): JSX.Element => {
 
   return (
     <Container customStyle={container}>
-      <OnlineGifting size={width} customStyle={image} />
+      <OnlineGifting
+        width={width}
+        customStyle={image}
+        color={DEFAULT_THEME.colors.primary}
+      />
       <Column>
         <Text customStyle={title} type={'heading'}>
           Lore Ipsum

@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, SafeAreaView } from 'react-native';
-
+import { View, StyleSheet, Dimensions } from 'react-native';
 export type ContainerPropTypes = {
-  children: React.ReactElement | any;
+  children: React.ReactElement | React.ReactElement[];
   customStyle?: object;
 };
 
@@ -12,10 +11,10 @@ const ContainerComponent = ({
 }: ContainerPropTypes): JSX.Element => {
   return <View style={[styles.container, customStyle]}>{children}</View>;
 };
-
+const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
+    paddingHorizontal: width * 0.03,
   },
 });
 export default ContainerComponent;

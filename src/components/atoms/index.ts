@@ -6,3 +6,4 @@ export { default as Input } from './Input';
 export { default as Text } from './base/Text';
 export { default as Row } from './base/Row';
 export { default as Column } from './base/Column';
+export { default as Link } from './base/Link';

@@ -8,19 +8,19 @@ import {
 import { ChevronRight } from '_icons/';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
-import { Container } from '_atoms/';
+import { Column, Container } from '_atoms/';
 import { DEFAULT_THEME } from '_themes/';
 
 const GoBackComponent = (): JSX.Element => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={styles.container}>
+    <Column customStyle={styles.container}>
       <Container>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <ChevronRight />
         </TouchableOpacity>
       </Container>
-    </SafeAreaView>
+    </Column>
   );
 };
 const { colors } = DEFAULT_THEME;

@@ -468,14 +468,14 @@ PODS:
     - React-perflogger (= 0.66.4)
   - RNCAsyncStorage (1.16.1):
     - React-Core
-  - RNFBAnalytics (14.5.0):
+  - RNFBAnalytics (14.5.1):
     - Firebase/Analytics (= 8.12.1)
     - React-Core
     - RNFBApp
-  - RNFBApp (14.5.0):
+  - RNFBApp (14.5.1):
     - Firebase/CoreOnly (= 8.12.1)
     - React-Core
-  - RNFBAuth (14.5.0):
+  - RNFBAuth (14.5.1):
     - Firebase/Auth (= 8.12.1)
     - React-Core
     - RNFBApp
@@ -507,17 +507,17 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.13.0):
+  - RNScreens (3.13.1):
     - React-Core
     - React-RCTImage
-  - RNSentry (3.2.13):
+  - RNSentry (3.3.0):
     - React-Core
-    - Sentry (= 7.9.0)
+    - Sentry (= 7.10.0)
   - RNSVG (9.13.6):
     - React
-  - Sentry (7.9.0):
-    - Sentry/Core (= 7.9.0)
-  - Sentry/Core (7.9.0)
+  - Sentry (7.10.0):
+    - Sentry/Core (= 7.10.0)
+  - Sentry/Core (7.10.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -773,14 +773,14 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: dec32ee6f2e2a26e13e58152271535fadff5455a
   ReactCommon: 57b69f6383eafcbd7da625bfa6003810332313c4
   RNCAsyncStorage: b49b4e38a1548d03b74b30e558a1d18465b94be7
-  RNFBAnalytics: afd361a31db57b61853ef321a872a132df0f4519
-  RNFBApp: 06c8447270d295edc431bccd55970d8711a07a42
-  RNFBAuth: e248a56b1d28d3b53b54b72a296cf9270df1d96e
+  RNFBAnalytics: 74cd9c60531ed33e5347b2dccafa172ae1a851a4
+  RNFBApp: 5bae3002117e55f3c9aa0fb38175dd16c8046c90
+  RNFBAuth: ed314ff1732011c23041570ac4a98bc6070f9f4d
   RNReanimated: e8afbe2a9e08e9e778ea72ddb1a8533445812621
-  RNScreens: aa12070b21c1d6011b3627a0b1d09b627232b070
-  RNSentry: 0aa1567f66c20390f3834637fc4f73380dcd0774
+  RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
+  RNSentry: 143980f2f98320eaaf10ccf7235dfc7f68b5ffa5
   RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
-  Sentry: 2f7e91f247cfb05b05bd01e0b5d0692557a7687b
+  Sentry: 6ff0eac197e699126c024993eba40a7462e92941
   Yoga: e7dc4e71caba6472ff48ad7d234389b91dadc280
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

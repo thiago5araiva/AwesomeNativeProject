@@ -18,6 +18,7 @@ import {
   SignInScreen,
   SignUpScreen,
   AboutScreen,
+  NotTrustUser,
 } from '_screens/';
 import { HeadingHeader, HeadlineHeader } from '_molecules/';
 
@@ -25,17 +26,24 @@ export type RootStackParamList = {
   Start: undefined;
   SignIn: undefined;
   SignOut: undefined;
+  NotTrustUser: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+const defaultScreenOptions: object = { headerShown: false };
 const signInScreenOptions: NativeStackNavigationOptions = {
+  ...defaultScreenOptions,
+  headerShown: true,
   header: props => <HeadingHeader {...props} />,
   title: 'Sign In',
 };
+
 const startScreenOptions: NativeStackNavigationOptions = {
-  headerShown: false,
+  ...defaultScreenOptions,
 };
+
+console.log(startScreenOptions);
 
 const router = () => {
   const scheme = useColorScheme();

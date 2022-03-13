@@ -4,11 +4,12 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import { getHeaderTitle } from '@react-navigation/elements';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 
-import { Container, Row, Text } from '_atoms/';
+import { Column, Container, Row, Text } from '_atoms/';
 import { ChevronRight } from '_icons/';
 import { DEFAULT_THEME } from '_themes/';
 
@@ -20,14 +21,11 @@ const CustomHeaderComponent = ({
   const title = getHeaderTitle(options, route.name);
 
   return (
-    <SafeAreaView style={styles.header}>
+    <Column customStyle={styles.container}>
       <Container>
         <Row>
           <TouchableOpacity
-            style={{
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
+            style={styles.header}
             onPress={() => navigation.goBack()}>
             <ChevronRight />
           </TouchableOpacity>
@@ -36,21 +34,21 @@ const CustomHeaderComponent = ({
           </Text>
         </Row>
       </Container>
-    </SafeAreaView>
+    </Column>
   );
 };
 const { colors } = DEFAULT_THEME;
 const screen = Dimensions.get('window');
 const styles = StyleSheet.create({
-  header: {
-    height: screen.height * 0.12,
+  container: {
+    height: screen.height * 0.1,
     backgroundColor: colors.background,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
+  header: {},
   title: {
     flex: 1,
     textAlign: 'center',
-    lineHeight: 57,
     marginLeft: -24,
   },
 });

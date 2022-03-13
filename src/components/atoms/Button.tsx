@@ -23,7 +23,7 @@ const ButtonComponent = ({
     <TouchableOpacity
       style={[styles.container, customStyle]}
       onPress={() => onPress()}>
-      <Text type="descriptive" customStyle={styles.text}>
+      <Text type="description" customStyle={styles.text}>
         {title}
       </Text>
       {children}

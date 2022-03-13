@@ -1,8 +1,6 @@
 type ImagePropTypes = {
-  fill?: string;
-  width?: string;
-  height?: string;
-  size?: number;
+  color: string;
+  width: number;
   customStyle?: object;
 };
 
