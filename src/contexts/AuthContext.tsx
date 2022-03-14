@@ -1,20 +1,16 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { NavigationContext } from '@react-navigation/native';
 import UserContext from './UserContext';
 
-type SignInProps = {
-  email: string;
-  password: string;
-};
-
 type PropsAuthContext = {
-  signIn: ({ email, password }: SignInProps) => void;
+  isSignedIn: boolean;
+  signIn: (email: string, password: string) => void;
   signOut: React.DispatchWithoutAction;
 };
 
 const DEFAULT_VALUE = {
+  isSignedIn: false,
   signIn: () => {},
   signOut: () => {},
 };
@@ -22,9 +18,9 @@ const DEFAULT_VALUE = {
 const AuthContext = createContext<PropsAuthContext>(DEFAULT_VALUE);
 const AuthContextProvider = ({ children }): JSX.Element => {
   const { setUser } = useContext(UserContext);
-  const navigation = React.useContext(NavigationContext);
+  const [isSignedIn, setSignedIn] = useState<boolean>(DEFAULT_VALUE.isSignedIn);
 
-  async function signIn({ email, password }: SignInProps) {
+  async function signIn(email, password) {
     try {
       const state = await auth().signInWithEmailAndPassword(email, password);
       const data = state.user;
@@ -42,9 +38,12 @@ const AuthContextProvider = ({ children }): JSX.Element => {
         photoURL: data.photoURL,
         uid: data.uid,
       }));
-      await AsyncStorage.setItem('@uid', data.uid);
+      setSignedIn(true);
+      await AsyncStorage.setItem('@isSignedIn', JSON.stringify(isSignedIn));
+      console.info(`User ${data.uid} has been signed`);
     } catch (error) {
-      console.log(error);
+      setSignedIn(false);
+      console.error(error);
     }
   }
   async function signOut() {
@@ -52,13 +51,14 @@ const AuthContextProvider = ({ children }): JSX.Element => {
       const key = await AsyncStorage.getItem('@uid');
       typeof key !== null && (await AsyncStorage.removeItem('@uid'));
       await auth().signOut();
+      setSignedIn(false);
     } catch (error) {
       console.log(error);
     }
   }
 
   return (
-    <AuthContext.Provider value={{ signIn, signOut }}>
+    <AuthContext.Provider value={{ isSignedIn, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

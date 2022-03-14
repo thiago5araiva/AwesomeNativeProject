@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 type UserType = {
   displayName: null;
@@ -19,13 +19,13 @@ type PropsUserContext = {
 const DEFAULT_VALUE = {
   user: {
     displayName: null,
-    email: '',
+    email: null,
     emailVerified: false,
     isAnonymous: false,
-    metadata: { creationTime: 0, lastSignInTime: 0 },
+    metadata: { creationTime: null, lastSignInTime: null },
     phoneNumber: null,
     photoURL: null,
-    uid: 'string',
+    uid: null,
   },
   setUser: () => {},
 };
@@ -34,6 +34,7 @@ const UserContext = createContext<PropsUserContext>(DEFAULT_VALUE);
 
 const UserContextProvider = ({ children }): JSX.Element => {
   const [user, setUser] = useState(DEFAULT_VALUE.user);
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

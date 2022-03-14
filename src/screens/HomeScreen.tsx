@@ -1,10 +1,14 @@
-import { View, Text } from 'react-native';
-import React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useContext } from 'react';
+import { AuthContext } from '_contexts/';
 
 const HomeScreen = () => {
+  const { signOut } = useContext(AuthContext);
   return (
     <View>
-      <Text>HomeScreen</Text>
+      <TouchableOpacity onPress={signOut}>
+        <Text>HomeScreen</Text>
+      </TouchableOpacity>
     </View>
   );
 };

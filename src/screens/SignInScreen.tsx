@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
-import { TextInput, View, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { TextInput, StyleSheet } from 'react-native';
 import { ArrowRight } from '_icons/';
-
-import { Button, Column, Container, Input, Link, Text } from '_atoms/';
+import { Button, Column, Container, Link, Text } from '_atoms/';
 import { DEFAULT_THEME } from '_themes/';
+import { AuthContext } from '_contexts/';
+
 const SignInScreen = (): JSX.Element => {
-  const [email, onChangeEmail] = useState<string>('Email');
-  const [password, onChangePassword] = useState<string>('Password');
+  const [email, onChangeEmail] = useState<string>('');
+  const [password, onChangePassword] = useState<string>('');
+  const [error, onError] = useState<boolean>(false);
+  const { signIn } = useContext(AuthContext);
+
+  function handleSignIn() {
+    try {
+      signIn(email, password);
+    } catch (error) {
+      onError(true);
+    }
+  }
 
   return (
     <Container>
@@ -16,12 +27,16 @@ const SignInScreen = (): JSX.Element => {
         <TextInput
           style={[styles.input, styles.input_email]}
           onChangeText={onChangeEmail}
+          placeholder="Email"
           value={email}
+          autoCapitalize="none"
         />
         <TextInput
           style={[styles.input, styles.input_password]}
           onChangeText={onChangePassword}
+          placeholder="Password"
           value={password}
+          autoCapitalize="none"
         />
         {/* singup-screen-link */}
         <Link type="component" customStyle={styles.forgot_password}>
@@ -35,7 +50,7 @@ const SignInScreen = (): JSX.Element => {
 
         {/* signupbtn */}
         {/* button */}
-        <Button onPress={() => ''} title="LOGIN"></Button>
+        <Button onPress={handleSignIn} title="LOGIN"></Button>
       </Column>
       {/* social-login */}
     </Container>

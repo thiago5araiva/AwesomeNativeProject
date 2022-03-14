@@ -35,7 +35,6 @@ const bindStyles = small => {
   const { colors } = DEFAULT_THEME;
   const size = small ? { height: 36, width: 160 } : { height: 48, width: 343 };
 
-  console.log(size);
   const style = StyleSheet.create({
     container: {
       alignSelf: 'center',

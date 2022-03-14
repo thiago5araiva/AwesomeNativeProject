@@ -17,9 +17,6 @@ const LinkComponent = ({
   customPress,
   customStyle,
 }: LinkPropTypes): JSX.Element => {
-  const typeTest = type === 'component' ? 'Esta certo' : 'Esta Errado';
-  console.log(typeTest);
-
   function handleWithLinkType(type) {
     const content = !title ? 'Lorem Ipsum' : title;
     return type !== 'component' ? <Text>{content}</Text> : children;
