@@ -5,12 +5,14 @@ import UserContext from './UserContext';
 
 type PropsAuthContext = {
   isSignedIn: boolean;
+  setSignedIn: React.Dispatch<React.SetStateAction<boolean>>;
   signIn: (email: string, password: string) => void;
   signOut: React.DispatchWithoutAction;
 };
 
 const DEFAULT_VALUE = {
-  isSignedIn: false,
+  isSignedIn: null,
+  setSignedIn: () => {},
   signIn: () => {},
   signOut: () => {},
 };
@@ -18,7 +20,7 @@ const DEFAULT_VALUE = {
 const AuthContext = createContext<PropsAuthContext>(DEFAULT_VALUE);
 const AuthContextProvider = ({ children }): JSX.Element => {
   const { setUser } = useContext(UserContext);
-  const [isSignedIn, setSignedIn] = useState<boolean>(DEFAULT_VALUE.isSignedIn);
+  const [isSignedIn, setSignedIn] = useState(DEFAULT_VALUE.isSignedIn);
 
   async function signIn(email, password) {
     try {
@@ -58,7 +60,7 @@ const AuthContextProvider = ({ children }): JSX.Element => {
   }
 
   return (
-    <AuthContext.Provider value={{ isSignedIn, signIn, signOut }}>
+    <AuthContext.Provider value={{ isSignedIn, setSignedIn, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
